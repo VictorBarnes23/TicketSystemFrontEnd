@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { TicketService } from '../../services/ticket.service';
 import { Ticket } from '../../models/ticket';
 import { FormsModule } from '@angular/forms';
+import { NewTicketComponent } from '../../components/new-ticket/new-ticket.component';
 
 @Component({
   selector: 'app-ticket',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, NewTicketComponent],
   templateUrl: './ticket.component.html',
   styleUrl: './ticket.component.css'
 })

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Ticket } from '../models/ticket';
+import { TicketDTO } from '../models/ticket-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class TicketService {
     return this.http.get<Ticket>(`${this.url}/Tickets/${id}`);
   }
 
-  addTicket(newTicket:Ticket):Observable<Ticket>{
+  addTicket(newTicket:TicketDTO):Observable<Ticket>{
     return this.http.post<Ticket>(`${this.url}/Tickets`,newTicket);
   }
 

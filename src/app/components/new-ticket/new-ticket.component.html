@@ -1,10 +1,12 @@
-<h1><u>Add An Order</u></h1>
+<h1><u>Add A Ticket</u></h1>
 <div>
     <input type = "text" placeholder="Title" [(ngModel)]="formTicket.title" />
     <input type = "text" placeholder="Description" [(ngModel)]="formTicket.description" />
     <input type="hidden" value="false" [(ngModel)]="formTicket.completed" />
     <input type="hidden" value = "" [(ngModel)]="formTicket.name" />
+    <input type="hidden" value = "" [(ngModel)]="formTicket.resolution" />
+    <input type="hidden" value = "" [(ngModel)]="formTicket.resolver" />
     <br/>
     <br/>
-    <button (click)="AddOrder()">Create Order</button>
+    <button (click)="AddTicket()">Create Ticket</button>
 </div>

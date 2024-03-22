@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TicketService } from '../../services/ticket.service';
 import { Ticket } from '../../models/ticket';
+import { TicketDTO } from '../../models/ticket-dto';
 
 @Component({
   selector: 'app-new-ticket',
@@ -13,14 +14,14 @@ import { Ticket } from '../../models/ticket';
 export class NewTicketComponent {
   constructor(private TicketService: TicketService){}
 
-  formTicket: Ticket = {} as Ticket
+  formTicket: TicketDTO = {} as TicketDTO
 
-  @Output() createEvent = new EventEmitter<Ticket>();
+  @Output() createEvent = new EventEmitter<TicketDTO>();
 
   createEmit(): void {
     this.createEvent.emit({...this.formTicket})
   }
-  AddOrder():void {
+  AddTicket():void {
     this.TicketService.addTicket(this.formTicket).subscribe((response:Ticket) => {
       this.createEvent.emit(response);
     })
