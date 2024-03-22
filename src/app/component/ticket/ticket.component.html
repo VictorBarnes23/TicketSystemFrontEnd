@@ -1,0 +1,28 @@
+<p style="text-align: center;"><b>Tickets</b></p>
+
+<table>
+
+    <tr style="text-align: left;">
+        <th>Title</th>
+        <th>Description</th>
+        <th>Name</th>
+        <th>Resolved</th>
+        <th>Resolver</th>
+    </tr>
+
+    @for(t of ticketsResult; track t.id ) {
+        <tr>
+            <td><a href="">{{t.title}}</a></td>
+            <td>{{t.description}}</td>
+            <td>{{t.name}}</td>
+            @if(t.completed){
+                <td style="text-align: center;">✓</td>
+                <td>{{t.resolver}}</td>
+            }
+            @else{
+                <td style="text-align: center;">x</td>
+                <td>N/A</td>
+            }
+        </tr>
+        } 
+</table>

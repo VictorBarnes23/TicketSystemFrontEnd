@@ -1,0 +1,10 @@
+<h1><u>Add An Order</u></h1>
+<div>
+    <input type = "text" placeholder="Title" [(ngModel)]="formTicket.title" />
+    <input type = "text" placeholder="Description" [(ngModel)]="formTicket.description" />
+    <input type="hidden" value="false" [(ngModel)]="formTicket.completed" />
+    <input type="hidden" value = "" [(ngModel)]="formTicket.name" />
+    <br/>
+    <br/>
+    <button (click)="AddOrder()">Create Order</button>
+</div>
