@@ -1,4 +1,3 @@
-
 <table>
 
     <tr style="text-align: left;">
@@ -13,3 +12,11 @@
         <td>{{ticketResult.name}}</td>
     </tr>
 </table>
+@if(ticketResult.resolution == null) {
+    <p>Add a resolution</p>
+    <input type="text" placeholder="Add Resolution" [(ngModel)]="resolutionText"/>
+    <button (click)="UpdateTicket()">Submit</button>
+}
+@else {
+    {{ticketResult.resolution}}
+}

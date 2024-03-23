@@ -24,7 +24,7 @@ export class TicketService {
     return this.http.post<Ticket>(`${this.url}/Tickets`,newTicket);
   }
 
-  updateTicket(Ticket:Ticket):Observable<Ticket>{
-    return this.http.put<Ticket>(`${this.url}/Tickets/${Ticket.id}`,Ticket)
+  updateTicket(Ticket:TicketDTO):Observable<Ticket>{
+    return this.http.put<Ticket>(`${this.url}/Tickets/${Ticket.id}`,Ticket);
   }
 }
