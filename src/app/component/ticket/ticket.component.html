@@ -12,7 +12,7 @@
 
     @for(t of ticketsResult; track t.id ) {
         <tr>
-            <td><a href="">{{t.title}}</a></td>
+            <td><a routerLink="/Tickets/{{t.id}}">{{t.title}}</a></td>
             <td>{{t.description}}</td>
             <td>{{t.name}}</td>
             @if(t.completed){
