@@ -4,11 +4,12 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Ticket } from '../../models/ticket';
 import { FormsModule } from '@angular/forms';
 import { TicketDTO } from '../../models/ticket-dto';
+import { AddResolutionComponent } from '../add-resolution/add-resolution.component';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [RouterLink, FormsModule],
+  imports: [RouterLink, FormsModule, AddResolutionComponent],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })
@@ -45,9 +46,13 @@ resolutionText:string = "";
       this.updateEvent.emit(response);
     })
   }
-  updateTicketWithResolution() {
-    const updatedTicket:TicketDTO = {...this.ticketResult, resolution: this.resolutionText};
-    this.TicketService.updateTicket(updatedTicket);
+  updateTicketWithResolution(string:string) {
+    this.ticketResult.resolution = string;
+    this.ticketResult.completed = true;
+    const updatedTicket:TicketDTO = {...this.ticketResult};
+    this.TicketService.updateTicket(updatedTicket).subscribe((response:Ticket) =>{
+      console.log(response)
+    })
   }
 
 

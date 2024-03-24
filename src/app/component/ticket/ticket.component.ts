@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { TicketService } from '../../services/ticket.service';
 import { Ticket } from '../../models/ticket';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +16,7 @@ export class TicketComponent {
   constructor(private TicketService: TicketService){}
 
   ticketsResult:Ticket[] = []
+ 
 
   ngOnInit(){
     this.callApi();

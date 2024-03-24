@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { TicketComponent } from './component/ticket/ticket.component';
 import { NewTicketComponent } from './components/new-ticket/new-ticket.component';
 import { DetailsComponent } from './components/details/details.component';
+import { AddResolutionComponent } from './components/add-resolution/add-resolution.component';
 
 @Component({
   selector: 'app-root',
