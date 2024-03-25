@@ -5,6 +5,7 @@ import { Ticket } from '../../models/ticket';
 import { FormsModule } from '@angular/forms';
 import { TicketDTO } from '../../models/ticket-dto';
 import { AddResolutionComponent } from '../add-resolution/add-resolution.component';
+import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-details',
@@ -14,12 +15,19 @@ import { AddResolutionComponent } from '../add-resolution/add-resolution.compone
   styleUrl: './details.component.css'
 })
 export class DetailsComponent {
-  constructor(private TicketService: TicketService, private router:Router, private activatedRoute:ActivatedRoute){}
+  constructor(private TicketService: TicketService, private router:Router, private activatedRoute:ActivatedRoute, private socialAuthServiceConfig: SocialAuthService){}
 
-ticketResult: TicketDTO = {} as Ticket;
+ticketResult: TicketDTO = {} as TicketDTO;
 resolutionText:string = "";
+user: SocialUser = {} as SocialUser;
+loggedIn: boolean = false;
 
   ngOnInit(){
+    this.socialAuthServiceConfig.authState.subscribe((userResponse: SocialUser) => {
+      this.user = userResponse;
+      //if login fails, it will return null.
+      this.loggedIn = (userResponse != null);
+    });
     this.activatedRoute.paramMap.subscribe((paramMap)=>{
       let id = Number(paramMap.get("id"));
     this.callTicket(id);
@@ -49,6 +57,7 @@ resolutionText:string = "";
   updateTicketWithResolution(string:string) {
     this.ticketResult.resolution = string;
     this.ticketResult.completed = true;
+    this.ticketResult.resolver = this.user.name;
     const updatedTicket:TicketDTO = {...this.ticketResult};
     this.TicketService.updateTicket(updatedTicket).subscribe((response:Ticket) =>{
       console.log(response)

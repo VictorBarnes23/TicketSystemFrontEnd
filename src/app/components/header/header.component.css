@@ -5,3 +5,6 @@ p:hover {
 .mycontainer {
     background-color: grey;
 }
+.myRightContainer {
+    text-align: right;
+}
