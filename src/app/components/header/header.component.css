@@ -4,6 +4,8 @@ p:hover {
 }
 .mycontainer {
     background-color: grey;
+    padding: 0rem;
+    margin: 0rem;
 }
 .myRightContainer {
     text-align: right;

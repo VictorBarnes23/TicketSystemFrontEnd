@@ -8,6 +8,9 @@
         <th>Name</th>
         <th>Resolved</th>
         <th>Resolver</th>
+        @if(loggedIn) {  
+        <th>Favorite</th>
+        }
     </tr>
 
     @for(t of ticketsResult; track t.id ) {
@@ -22,6 +25,11 @@
             @else{
                 <td style="text-align: center;">x</td>
                 <td>N/A</td>
+            }
+            @if(loggedIn) {
+                @if(!t.favorites.includes(user.id)) {
+                <td style="text-align: center;"><a role="button" (click)="createFavorite(t)">&#9829;</a></td>
+                }
             }
         </tr>
         } 

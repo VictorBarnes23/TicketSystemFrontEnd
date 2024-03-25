@@ -1,7 +1,5 @@
-import { Ticket } from "./ticket";
-
-export interface Favorite {
+export interface FavoriteModel {
     id: number;
     ticketId: number;
-    ticket: Ticket;
+    userId:string;
 }

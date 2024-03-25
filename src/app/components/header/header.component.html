@@ -5,6 +5,7 @@
     <asl-google-signin-button></asl-google-signin-button>
   }
   @else {
+    <a routerLink="/Favorites/{{user.id}}">Favorites</a>
     <!-- calls our log out method -->
     <button class="btn btn-outline-dark" (click)="signOut()">
       Sign Out

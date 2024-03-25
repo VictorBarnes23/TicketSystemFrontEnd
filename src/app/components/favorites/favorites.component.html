@@ -1,0 +1,17 @@
+<div class="center">
+@for(f of favesArray; track f.id) {
+    <h1><u>{{f.title}}</u></h1>
+    <p>Opened by: {{f.name}}</p>
+    <p>Ticket body: {{f.description}}</p>
+    @if(f.resolver != null) {
+        <p>Resolved By: {{f.resolver}}</p>
+    }
+    @if(f.resolution != null) {
+        <p>Resolution: {{f.resolution}}</p>
+    }
+    @else {
+        <p>Not yet resolved</p>
+    }
+    <hr/>
+}
+</div>
