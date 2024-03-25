@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: antiquewhite;
+}
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+
+.myContainer {
+    background-color: darkgray;
+}

@@ -1,20 +1,11 @@
-<table>
-
-    <tr style="text-align: left;">
-        <th>Title</th>
-        <th>Description</th>
-        <th>Name</th>
-    </tr>
-
-    <tr>
-        <td>{{ticketResult.title}}</td>
-        <td>{{ticketResult.description}}</td>
-        <td>{{ticketResult.name}}</td>
-    </tr>
-</table>
+<div class="center">
+<h1><u>{{ticketResult.title}}</u></h1>
+<p>Opened by: {{ticketResult.name}}</p>
+<p>Ticket body: {{ticketResult.description}}</p>
 @if(ticketResult.resolution == null) {
   <app-add-resolution (updateEvent)="updateTicketWithResolution($event)"></app-add-resolution>
 }
 @else {
-    {{ticketResult.resolution}}
+    <p><b><u>Resolution:</u></b> {{ticketResult.resolution}}</p>
 }
+</div>
