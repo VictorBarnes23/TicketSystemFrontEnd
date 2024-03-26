@@ -10,3 +10,7 @@ body {
 .myContainer {
     background-color: darkgray;
 }
+
+* {
+    font-family: "Space Mono", monospace;
+}
