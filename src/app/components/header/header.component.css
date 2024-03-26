@@ -2,7 +2,9 @@ p:hover {
     cursor: pointer;
     color: blue;
 }
-.mycontainer {
+.myContainer {
+    display: flex;
+    justify-content: space-between;
     background-color: grey;
     padding: 0rem;
     margin: 0rem;

@@ -16,7 +16,7 @@ export class HeaderComponent {
 
   constructor(private socialAuthServiceConfig: SocialAuthService) { }
  
-  ngOnInit() {
+  ngOnInit() { 
     //authState is a custom observable that will run again any time changes are noticed.
     this.socialAuthServiceConfig.authState.subscribe((userResponse: SocialUser) => {
       this.user = userResponse;

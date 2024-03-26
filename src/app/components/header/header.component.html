@@ -1,15 +1,20 @@
 <div class="myContainer">
-<a routerLink="/Tickets"><b><u>Tickets</u></b></a>
-@if (!loggedIn) {
-    <!-- Custom component that handles log in -->
-    <asl-google-signin-button></asl-google-signin-button>
-  }
-  @else {
-    <a routerLink="/Favorites/{{user.id}}">Favorites</a>
+  <div>
+    <a routerLink="/Tickets"
+      ><b><u>Tickets</u></b></a
+    >
+    @if(loggedIn){
+    <a routerLink="/Favorites/{{ user.id }}"> Favorites</a>
+    }
+  </div>
+  @if (!loggedIn) {
+  <!-- Custom component that handles log in -->
+  <asl-google-signin-button></asl-google-signin-button>
+  } @else {
+  <div>
     <!-- calls our log out method -->
-    <button class="btn btn-outline-dark" (click)="signOut()">
-      Sign Out
-    </button>
+    <button class="btn btn-outline-dark" (click)="signOut()">Sign Out</button>
+  </div>
   }
-<hr/>
+  <!-- <hr/> -->
 </div>
